@@ -7,11 +7,12 @@ public class Main {
     public static void main(String[] args) {
         String broker = "tcp://broker.hivemq.com:1883";
         String clientId = "aogijasoågjåasojfg";
-        String topic = "Stroid/Temp";
+        String topic = "MMB/temperaturesensor";
         int qos = 2;
 
         try {
             Controller controller = new Controller(broker, clientId, topic, qos);
+            controller.subscribe(topic, qos);
         } catch (MqttException e) {
             e.printStackTrace();
         }

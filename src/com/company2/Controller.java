@@ -26,7 +26,7 @@ public class Controller implements MqttCallback {
         this.client.setCallback(this);
         this.client.connect(conOpt);
 
-        this.client.subscribe(this.topic, qos);
+
     }
 
     public void publishMessage(String content, String topic) throws MqttException {
@@ -57,5 +57,12 @@ public class Controller implements MqttCallback {
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 
+    }
+
+    public void subscribe(String topic, int qos) throws MqttException {
+        this.client.subscribe(topic, qos);
+    }
+    public void subscribe(String[] topic, int[] qos) throws MqttException {
+        this.client.subscribe(topic, qos);
     }
 }
