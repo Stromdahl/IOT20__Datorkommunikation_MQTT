@@ -6,6 +6,8 @@ import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.nio.charset.StandardCharsets;
+
 public class MqttPublishSample {
 
     String broker;
@@ -30,7 +32,6 @@ public class MqttPublishSample {
         MqttConnectOptions connOpts = new MqttConnectOptions();
         connOpts.setCleanSession(true);
         client.connect(connOpts);
-
     }
 
     public void publishMessage(String content, String topic) throws MqttException {
@@ -42,5 +43,4 @@ public class MqttPublishSample {
     public void disconnectClient() throws MqttException {
         client.disconnect();
     }
-
 }
